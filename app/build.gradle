@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+
+    defaultConfig {
+        applicationId "com.tale.androidcore"
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:appcompat-v7:${android_support_version}"
+}
+
+android.applicationVariants.all { variant ->
+
+    if (!variant.buildType.name.equals("release")) return;
+
+    variant.outputs.each { output ->
+        def dir = output.outputFile.parent
+        def appName = output.outputFile.name;
+        if (appName.contains('app-product-release')) {
+            appName = appName.replace("app-product-release", "AndroidCore")
+        } else {
+            appName = appName.replace("app-release", "AndroidCore")
+        }
+
+        def appVersioning = appName.replace(".apk", "-" + android.defaultConfig.versionName + ".apk")
+        output.outputFile = new File(dir, appVersioning)
+    }
+}

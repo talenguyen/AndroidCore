@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    // Classpath
+    gradle_version = '1.2.3'
+    retrolambda_version = '3.1.0'
+    android_apt_version = '1.4'
+
+    // Android SDK
+    min_sdk_version = 14
+    target_sdk_version = 22
+
+    // Build tools
+    build_tools_version = '22.0.1'
+
+    // Dependencies
+    android_support_version = '22.2.0'
+    dagger_version = '2.0'
+    generated_annotation_version = '10.0-b28'
+    leakcanary_version = '1.3'
+    timber_version = '2.2.+'
+    butterknife_verion = '6.1.0'
+
+}
