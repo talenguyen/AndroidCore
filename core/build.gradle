@@ -59,13 +59,13 @@ dependencies {
     debugCompile "com.squareup.leakcanary:leakcanary-android:${leakcanary_version}"
     releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanary_version}"
 }
-
-task installLocal(type: Upload) {
-    description "Installs the artifacts."
-    repositories.mavenInstaller {
-        configuration = configurations.default
-        pom.groupId = 'com.github.talenguyen'
-        pom.artifactId = 'androidcore'
-        pom.version = '1.0.2'
-    }
-}
+//
+//task installLocal(type: Upload) {
+//    description "Installs the artifacts."
+//    repositories.mavenInstaller {
+//        configuration = configurations.default
+//        pom.groupId = 'com.github.talenguyen'
+//        pom.artifactId = 'androidcore'
+//        pom.version = '1.0.2'
+//    }
+//}
