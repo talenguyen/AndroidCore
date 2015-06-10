@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion rootProject.ext.target_sdk_version
@@ -29,7 +30,7 @@ android {
         minSdkVersion rootProject.ext.min_sdk_version
         targetSdkVersion rootProject.ext.target_sdk_version
         versionCode 1
-        versionName "1.0.0-SNAPSHOT"
+        versionName "1.0.2"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -57,4 +58,14 @@ dependencies {
 
     debugCompile "com.squareup.leakcanary:leakcanary-android:${leakcanary_version}"
     releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanary_version}"
+}
+
+task installLocal(type: Upload) {
+    description "Installs the artifacts."
+    repositories.mavenInstaller {
+        configuration = configurations.default
+        pom.groupId = 'com.github.talenguyen'
+        pom.artifactId = 'androidcore'
+        pom.version = '1.0.2'
+    }
 }
