@@ -5,7 +5,7 @@ android {
     buildToolsVersion rootProject.ext.build_tools_version
 
     defaultConfig {
-        applicationId "com.tale.androidcore"
+        applicationId "com.tale.androidcoredemo"
         minSdkVersion rootProject.ext.min_sdk_version
         targetSdkVersion rootProject.ext.target_sdk_version
         versionCode 1
