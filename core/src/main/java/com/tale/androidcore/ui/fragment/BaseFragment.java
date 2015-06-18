@@ -18,6 +18,7 @@ package com.tale.androidcore.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 import com.tale.androidcore.BaseApp;
 
@@ -26,14 +27,46 @@ import com.tale.androidcore.BaseApp;
  */
 public class BaseFragment extends Fragment {
 
+    private String tag;
+
+    public BaseFragment() {
+        tag = getClass().getSimpleName();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(tag, "onCreate");
         super.onCreate(savedInstanceState);
         injectDependencies();
     }
 
     @Override
+    public void onResume() {
+        Log.d(tag, "onResume");
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        Log.d(tag, "onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.d(tag, "onStop");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroyView() {
+        Log.d(tag, "onDestroyView");
+        super.onDestroyView();
+    }
+
+    @Override
     public void onDestroy() {
+        Log.d(tag, "onDestroy");
         super.onDestroy();
         BaseApp.getRefWatcher(getActivity()).watch(this);
     }
