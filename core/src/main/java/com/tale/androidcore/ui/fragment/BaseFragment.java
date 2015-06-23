@@ -17,7 +17,6 @@
 package com.tale.androidcore.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.tale.androidcore.BaseApp;
@@ -25,7 +24,7 @@ import com.tale.androidcore.BaseApp;
 /**
  * Created by tale on 11/8/14.
  */
-public class BaseFragment extends Fragment {
+public class BaseFragment extends RxFragment {
 
     private String tag;
 
