@@ -7,7 +7,7 @@ import com.tale.androidcore.ui.view.ViewSwitcher;
 /**
  * Created by Larry on 3/31/2015.
  */
-public class LoadingFragment extends BaseFragment {
+public class LoadingFragment extends RxFragment {
 
     private ViewSwitcher loadingViewSwitcher;
 

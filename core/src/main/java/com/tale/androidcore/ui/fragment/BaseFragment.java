@@ -16,7 +16,6 @@
 
 package com.tale.androidcore.ui.fragment;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.tale.androidcore.BaseApp;
@@ -27,18 +26,9 @@ import com.tale.androidcore.BaseApp;
 public class BaseFragment extends Fragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        injectDependencies();
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         BaseApp.getRefWatcher(getActivity()).watch(this);
-    }
-
-    protected void injectDependencies() {
     }
 
 }
