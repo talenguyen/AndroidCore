@@ -7,7 +7,10 @@ import rx.Observable;
 import rx.android.lifecycle.LifecycleEvent;
 import rx.subjects.BehaviorSubject;
 
-public class RxFragment extends android.support.v4.app.Fragment {
+/**
+ * Author tale. Created on 6/30/15.
+ */
+public class RxFragment extends BaseFragment {
 
     private final BehaviorSubject<LifecycleEvent> lifecycleSubject = BehaviorSubject.create();
 

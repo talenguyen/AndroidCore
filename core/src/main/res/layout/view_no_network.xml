@@ -14,23 +14,23 @@
 			/>
 	<TextView
 			android:id="@+id/lbNoNetwork"
-			android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/no_network_connection"
 			android:layout_below="@+id/ivIcon"
 			android:layout_centerHorizontal="true"
-			android:layout_margin="@dimen/padding_large"
+		android:layout_margin="@dimen/large"
+		android:text="@string/no_network_connection"
+		android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 			/>
 
 	<TextView
-			android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/no_network_instruction"
 			android:layout_below="@+id/lbNoNetwork"
 			android:layout_centerHorizontal="true"
-			android:layout_margin="@dimen/padding_large"
+		android:layout_margin="@dimen/large"
+		android:text="@string/no_network_instruction"
+		android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
 			/>
 
 </merge>

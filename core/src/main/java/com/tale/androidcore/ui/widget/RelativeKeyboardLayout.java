@@ -11,6 +11,7 @@ import timber.log.Timber;
  */
 public class RelativeKeyboardLayout extends RelativeLayout {
 
+    private static final int ASSUME_KEYBOARD_HEIGHT = 100;
     private KeyboardEventListener keyboardEventListener;
 
     public RelativeKeyboardLayout(Context context, AttributeSet attrs) {
@@ -26,13 +27,16 @@ public class RelativeKeyboardLayout extends RelativeLayout {
         super.onSizeChanged(w, h, oldw, oldh);
         Timber.d("onSizeChanged => {w=%d, h=%d, oldw=%d, oldh=%d}", w, h, oldw, oldh);
         if (keyboardEventListener != null && oldh != 0) {
-            final boolean show = (h + 50) < oldh;
-            Timber.d("onKeyboardShow: %s", show);
-            keyboardEventListener.onChanged(show);
+            final int diff = h - oldh;
+            if (Math.abs(diff) > ASSUME_KEYBOARD_HEIGHT) {
+                final boolean show = diff < 0;
+                Timber.d("onKeyboardShow: %s", show);
+                keyboardEventListener.onChanged(show);
+            }
         }
     }
 
-    public static interface KeyboardEventListener {
+    public interface KeyboardEventListener {
 
         void onChanged(boolean show);
 
